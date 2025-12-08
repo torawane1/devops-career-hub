@@ -15,47 +15,25 @@ const Skills = () => {
       title: 'DevOps & Cloud',
       icon: Cloud,
       color: 'primary',
-      skills: [
-        { name: 'Docker', level: 95 },
-        { name: 'Kubernetes', level: 90 },
-        { name: 'Terraform', level: 90 },
-        { name: 'Azure', level: 85 },
-        { name: 'AWS', level: 80 },
-        { name: 'Jenkins', level: 85 },
-        { name: 'Ansible', level: 75 },
-      ],
+      skills: ['Docker', 'Kubernetes', 'Terraform', 'Azure', 'AWS', 'Jenkins', 'Ansible'],
     },
     {
       title: 'Languages & Scripts',
       icon: TerminalIcon,
       color: 'secondary',
-      skills: [
-        { name: 'Shell Script', level: 90 },
-        { name: 'Python', level: 75 },
-        { name: 'YAML', level: 95 },
-        { name: 'C', level: 60 },
-      ],
+      skills: ['Shell Script', 'PowerShell', 'Python', 'YAML', 'C'],
     },
     {
       title: 'Tools & Platforms',
       icon: Layers,
       color: 'accent',
-      skills: [
-        { name: 'Git', level: 95 },
-        { name: 'Prometheus', level: 80 },
-        { name: 'Helm', level: 85 },
-        { name: 'Flux', level: 85 },
-        { name: 'PostgreSQL', level: 75 },
-      ],
+      skills: ['Git', 'Prometheus', 'Helm', 'Flux', 'PostgreSQL'],
     },
     {
       title: 'Operating Systems',
       icon: Monitor,
       color: 'primary',
-      skills: [
-        { name: 'Linux', level: 90 },
-        { name: 'Windows', level: 80 },
-      ],
+      skills: ['Linux', 'Windows'],
     },
   ];
 
@@ -119,31 +97,18 @@ const Skills = () => {
                   <h3 className="font-semibold text-foreground">{category.title}</h3>
                 </div>
 
-                <div className="space-y-4">
-                  {category.skills.map((skill, index) => (
-                    <div key={skill.name}>
-                      <div className="flex justify-between text-sm mb-1">
-                        <span className="text-muted-foreground">{skill.name}</span>
-                        <span className={`${
-                          category.color === 'primary' ? 'text-primary' :
-                          category.color === 'secondary' ? 'text-secondary' :
-                          'text-accent'
-                        }`}>{skill.level}%</span>
-                      </div>
-                      <div className="h-2 bg-muted rounded-full overflow-hidden">
-                        <div 
-                          className={`h-full rounded-full transition-all duration-1000 ${
-                            category.color === 'primary' ? 'bg-primary' :
-                            category.color === 'secondary' ? 'bg-secondary' :
-                            'bg-accent'
-                          }`}
-                          style={{ 
-                            width: `${skill.level}%`,
-                            animationDelay: `${(catIndex * 200) + (index * 100)}ms`
-                          }}
-                        />
-                      </div>
-                    </div>
+                <div className="flex flex-wrap gap-2">
+                  {category.skills.map((skill) => (
+                    <span 
+                      key={skill}
+                      className={`px-3 py-1.5 rounded-md text-sm font-medium ${
+                        category.color === 'primary' ? 'bg-primary/10 text-primary border border-primary/20' :
+                        category.color === 'secondary' ? 'bg-secondary/10 text-secondary border border-secondary/20' :
+                        'bg-accent/10 text-accent border border-accent/20'
+                      }`}
+                    >
+                      {skill}
+                    </span>
                   ))}
                 </div>
               </div>
