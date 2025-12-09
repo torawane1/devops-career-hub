@@ -1,4 +1,5 @@
 name: Deploy to GitHub Pages
+
 on:
   push:
     branches:
@@ -10,16 +11,18 @@ permissions:
   id-token: write
 
 jobs:
-  build-deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18' # or your required version
+          node-version: '18' # or 20 if your project needs it
+          cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
@@ -27,10 +30,11 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Upload artifact for GitHub Pages
-        uses: actions/upload-pages-artifact@v1
+      - name: Upload Pages artifact
+        # IMPORTANT: use @v4 to avoid deprecation/brownouts
+        uses: actions/upload-pages-artifact@v4
         with:
-          path: ./docs  # or ./docs if you used that
+          path: ./dist   # change to ./docs if you build to docs/
 
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
