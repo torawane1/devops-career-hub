@@ -30,10 +30,10 @@ const About = () => {
                 <span className="text-primary font-semibold">Hi, I'm Umesh!</span>
               </p>
               <p className="text-muted-foreground">
-                A passionate <span className="text-foreground">Sr. DevOps Release Engineer</span> based in Copenhagen, Denmark, with expertise in building and managing cloud infrastructure at scale.
+                A passionate <span className="text-foreground">DevOps Engineer</span> based in Copenhagen, Denmark, with expertise in building and managing cloud infrastructure at scale.
               </p>
               <p className="text-muted-foreground">
-                With a <span className="text-foreground">Master's in Technology Management</span> from Aalborg University and <span className="text-foreground">Bachelor's in IT</span> from Pune University, I bridge the gap between technical excellence and strategic thinking.
+                With a <span className="text-foreground">Master's in Technology Management</span> from Aalborg University and <span className="text-foreground">Bachelor's in Information Technology</span> from Pune University, I bridge the gap between technical excellence and strategic thinking.
               </p>
               <p className="text-muted-foreground">
                 Currently at <span className="text-primary">VML MAP</span>, I drive infrastructure automation, manage Kubernetes clusters with GitOps, and ensure reliable production releases.
@@ -66,7 +66,7 @@ const About = () => {
           <h3 className="flex items-center gap-2 text-lg font-semibold mb-6">
             <span className="text-secondary">$</span> tree education/
           </h3>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
             <div className="terminal-window p-6">
               <div className="flex items-start gap-4">
                 <div className="p-2 rounded bg-secondary/10 text-secondary">
@@ -92,6 +92,54 @@ const About = () => {
                   <p className="text-muted-foreground text-xs mt-1">Pune, India</p>
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* Coursework */}
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="terminal-window p-6">
+              <h4 className="flex items-center gap-2 font-semibold text-foreground mb-4">
+                <span className="text-secondary">▸</span> Graduate
+              </h4>
+              <ul className="space-y-2">
+                <li className="text-sm text-muted-foreground flex items-center gap-2">
+                  <span className="text-secondary">•</span> Machine Learning
+                </li>
+                <li className="text-sm text-muted-foreground flex items-center gap-2">
+                  <span className="text-secondary">•</span> Cyber Security
+                </li>
+                <li className="text-sm text-muted-foreground flex items-center gap-2">
+                  <span className="text-secondary">•</span> User Experience and Ethics
+                </li>
+                <li className="text-sm text-muted-foreground flex items-center gap-2">
+                  <span className="text-secondary">•</span> Internet Services and Governance
+                </li>
+                <li className="text-sm text-muted-foreground flex items-center gap-2">
+                  <span className="text-secondary">•</span> Entrepreneurship
+                </li>
+              </ul>
+            </div>
+            <div className="terminal-window p-6">
+              <h4 className="flex items-center gap-2 font-semibold text-foreground mb-4">
+                <span className="text-secondary">▸</span> Undergraduate
+              </h4>
+              <ul className="space-y-2">
+                <li className="text-sm text-muted-foreground flex items-center gap-2">
+                  <span className="text-secondary">•</span> Data Structure & Algorithms
+                </li>
+                <li className="text-sm text-muted-foreground flex items-center gap-2">
+                  <span className="text-secondary">•</span> Object Oriented Programming
+                </li>
+                <li className="text-sm text-muted-foreground flex items-center gap-2">
+                  <span className="text-secondary">•</span> Operating Systems
+                </li>
+                <li className="text-sm text-muted-foreground flex items-center gap-2">
+                  <span className="text-secondary">•</span> Databases
+                </li>
+                <li className="text-sm text-muted-foreground flex items-center gap-2">
+                  <span className="text-secondary">•</span> Computer Networks
+                </li>
+              </ul>
             </div>
           </div>
         </div>

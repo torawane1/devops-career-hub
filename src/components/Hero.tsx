@@ -5,7 +5,7 @@ import profileImage from '@/assets/profile.jpg';
 const Hero = () => {
   const typingTexts = [
     'DevOps Engineer',
-    'Cloud Architect',
+    'Platform Engineer',
     'Infrastructure Specialist',
     'Automation Expert',
     'Kubernetes Enthusiast',

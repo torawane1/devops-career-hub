@@ -26,7 +26,7 @@ const Skills = () => {
     {
       title: 'Tools & Platforms',
       icon: Layers,
-      color: 'accent',
+      color: 'primary',
       skills: ['Git', 'Prometheus', 'Helm', 'Flux', 'PostgreSQL'],
     },
     {
