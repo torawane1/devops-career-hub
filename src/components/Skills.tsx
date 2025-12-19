@@ -20,7 +20,7 @@ const Skills = () => {
     {
       title: 'Languages & Scripts',
       icon: TerminalIcon,
-      color: 'secondary',
+      color: 'primary',
       skills: ['Shell Script', 'PowerShell', 'Python', 'YAML', 'C'],
     },
     {
