@@ -3,7 +3,7 @@ import { Calendar, MapPin, ChevronRight } from 'lucide-react';
 const Experience = () => {
   const experiences = [
     {
-      title: 'Sr. DevOps Release Engineer',
+      title: 'DevOps Engineer',
       company: 'VML MAP',
       location: 'Copenhagen, Denmark',
       period: 'June 2024 – Present',
@@ -11,11 +11,13 @@ const Experience = () => {
       highlights: [
         'Drive Proof of Concept (POC) initiatives for new Azure features and DevOps tools',
         'Manage production releases end-to-end, from planning to monitoring',
-        'Implement and maintain Infrastructure as Code (IaC) using Terraform',
+        'Provision and manage Azure infrastructure using Terraform, including AKS, VNets, subnets, front door load balancers, and managed identities',
         'Manage Kubernetes (AKS) clusters with Flux and Helm, adopting GitOps',
+        'Harden Kubernetes clusters through RBAC, network policies, pod security standards, and secret management',
         'Monitor system performance using SigNoz as observability solution',
+        'Integrate observability tooling with logs, metrics, and traces to support incident response and root cause analysis',
       ],
-      tech: ['Azure', 'Terraform', 'Kubernetes', 'Flux', 'Helm', 'SigNoz'],
+      tech: ['Azure', 'Terraform', 'Kubernetes', 'Flux', 'Helm', 'Kustomize', 'SigNoz', 'Powershell'],
     },
     {
       title: 'Solutions Delivery Consultant',
@@ -29,19 +31,21 @@ const Experience = () => {
         'Executed data migration from DB2 to PostgreSQL on Azure Cloud',
         'Leveraged Kubernetes operators for optimized containerized deployments',
       ],
-      tech: ['Azure', 'Kubernetes', 'PostgreSQL', 'DB2', 'LDAP'],
+      tech: ['Azure', 'Kubernetes', 'PostgreSQL', 'DB2', 'LDAP', 'Powershell', 'Ansible'],
     },
     {
       title: 'Technical Account Manager (Student Assistant)',
-      company: 'IBM Denmark',
+      company: 'IBM Denmark ApS',
       location: 'Copenhagen, Denmark',
       period: 'March 2022 – September 2023',
       status: 'completed',
       highlights: [
         'Managed technical relationships with enterprise clients',
+        'Supported troubleshooting and incident resolution by collaborating with engineering and support teams',
+        'Assisted clients with cloud architecture discussions, migrations, and best practices',
         'Provided technical guidance on IBM cloud solutions',
       ],
-      tech: ['IBM Cloud', 'Customer Relations'],
+      tech: ['IBM Cloud', 'Customer Relations', 'Trusted Advisor'],
     },
     {
       title: 'Software Services Engineer',
@@ -54,9 +58,9 @@ const Experience = () => {
         'Product expertise in IBM Security Verify Access (SSO, MFA, Federation) & Verify Directory (LDAP)',
         'Deployment experience of ISVA & ISVD with on-prem and cloud solutions',
         'Strong knowledge of SSL implementation and troubleshooting',
-        'Maintaining high availability of SSO components using Distributed cache management',
+        'Maintaining high availability of SSO components using Distributed session cache management',
       ],
-      tech: ['Python', 'Ansible', 'Kubernetes', 'Wireshark', 'AWS', 'EC2', 'S3'],
+      tech: ['Reverse Proxy', 'Python', 'Ansible', 'Kubernetes', 'TCP/IP', 'LDAP', 'SSL', 'Distributed Cache', 'HTTP Headers, Cookies, Sessions', 'Backup & Disaster Recovery'],
     },
     {
       title: 'Software Engineer - SQL Developer',
