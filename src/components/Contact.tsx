@@ -113,9 +113,9 @@ const Contact = () => {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
                 </span>
-                <span className="text-sm text-foreground">
+                {/*<span className="text-sm text-foreground">
                   Currently open to new opportunities
-                </span>
+                </span> */}
               </div>
             </div>
           </div>
