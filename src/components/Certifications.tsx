@@ -72,6 +72,17 @@ const Certifications = () => {
             <p className="text-muted-foreground text-sm">
               Verified credentials from industry leaders
             </p>
+            <p className="text-muted-foreground text-sm mt-2">
+              Verify with{' '}
+              <a
+                href="https://www.credly.com/users/umesh-sanjay-torawane"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:text-primary/80 transition-colors"
+              >
+                Credly
+              </a>
+            </p>
           </div>
         </div>
 
