@@ -91,7 +91,7 @@ const Hero = () => {
                 {/* Status indicator */}
                 <div className="absolute bottom-4 left-4 flex items-center gap-2 bg-background/80 backdrop-blur-sm px-3 py-1.5 rounded-full border border-primary/30">
                   <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-               //   <span className="text-xs text-primary">Available for opportunities</span>
+                  {/* <span className="text-xs text-primary">Available for opportunities</span> */}
                 </div>
               </div>
             </div>
