@@ -49,7 +49,7 @@ const Experience = () => {
     },
     {
       title: 'Software Services Engineer',
-      company: 'IBM India Pvt. Ltd.',
+      company: 'IBM India Pvt Ltd',
       location: 'Pune, India',
       period: 'April 2017 – January 2021',
       status: 'completed',
