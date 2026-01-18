@@ -4,6 +4,7 @@ import About from '@/components/About';
 import Experience from '@/components/Experience';
 import Skills from '@/components/Skills';
 import Certifications from '@/components/Certifications';
+import ProjectWork from '@/components/ProjectWork';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 
@@ -12,18 +13,19 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       {/* Scanline effect */}
       <div className="scanline" />
-      
+
       <Navbar />
-      
+
       <main>
         <Hero />
         <About />
         <Experience />
         <Skills />
         <Certifications />
+        <ProjectWork />
         <Contact />
       </main>
-      
+
       <Footer />
     </div>
   );
