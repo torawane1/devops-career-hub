@@ -1,4 +1,4 @@
-import { Award, Shield, Cloud, CheckCircle } from 'lucide-react';
+import { Award, Shield, Cloud, CheckCircle, Calendar } from 'lucide-react';
 
 const Certifications = () => {
   const certifications = [
@@ -8,6 +8,8 @@ const Certifications = () => {
       provider: 'Microsoft',
       color: 'from-blue-500 to-cyan-500',
       icon: '🔷',
+      issuedDate: 'N/A',
+      expiryDate: 'N/A',
     },
     {
       name: 'AWS Certified Cloud Practitioner',
@@ -15,6 +17,8 @@ const Certifications = () => {
       provider: 'Amazon Web Services',
       color: 'from-orange-500 to-yellow-500',
       icon: '☁️',
+      issuedDate: 'N/A',
+      expiryDate: 'May 5, 2027',
     },
     {
       name: 'AWS Certified Developer – Associate',
@@ -22,6 +26,8 @@ const Certifications = () => {
       provider: 'Amazon Web Services',
       color: 'from-orange-500 to-yellow-500',
       icon: '👨‍💻',
+      issuedDate: 'N/A',
+      expiryDate: 'May 5, 2027',
     },
     {
       name: 'HashiCorp Certified: Terraform Associate',
@@ -29,6 +35,8 @@ const Certifications = () => {
       provider: 'HashiCorp',
       color: 'from-purple-500 to-pink-500',
       icon: '🏗️',
+      issuedDate: 'N/A',
+      expiryDate: 'May 20, 2026',
     },
     {
       name: 'IBM Certified Deployment Professional',
@@ -36,6 +44,8 @@ const Certifications = () => {
       provider: 'IBM',
       color: 'from-blue-600 to-blue-400',
       icon: '🔵',
+      issuedDate: 'Feb 17, 2023',
+      expiryDate: 'N/A',
     },
     {
       name: 'IBM Certified Associate SRE - Cloud',
@@ -43,6 +53,8 @@ const Certifications = () => {
       provider: 'IBM',
       color: 'from-blue-600 to-blue-400',
       icon: '🛡️',
+      issuedDate: 'Mar 17, 2023',
+      expiryDate: 'N/A',
     },
   ];
 
@@ -89,7 +101,7 @@ const Certifications = () => {
         {/* Certifications Grid */}
         <div className="grid md:grid-cols-2 gap-4">
           {certifications.map((cert, index) => (
-            <div 
+            <div
               key={cert.name}
               className="cert-badge group"
               style={{ animationDelay: `${index * 100}ms` }}
@@ -108,6 +120,16 @@ const Certifications = () => {
                 <span className="inline-block mt-2 px-2 py-0.5 text-xs bg-muted rounded text-muted-foreground">
                   {cert.code}
                 </span>
+                <div className="flex flex-col gap-1 mt-2 text-xs text-muted-foreground">
+                  <div className="flex items-center gap-1">
+                    <Calendar className="w-3 h-3" />
+                    <span>Issued: {cert.issuedDate}</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Calendar className="w-3 h-3" />
+                    <span>Expires: {cert.expiryDate}</span>
+                  </div>
+                </div>
               </div>
             </div>
           ))}
