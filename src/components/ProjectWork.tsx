@@ -133,7 +133,7 @@ const ProjectWork = () => {
                                 <div className="terminal-dot terminal-dot-red" />
                                 <div className="terminal-dot terminal-dot-yellow" />
                                 <div className="terminal-dot terminal-dot-green" />
-                                <span className="ml-4 text-muted-foreground text-sm">project-{index + 1}.yml</span>
+                                <span className="ml-4 text-muted-foreground text-sm">project-{index + 1}.txt</span>
                             </div>
 
                             <div className="p-6">
