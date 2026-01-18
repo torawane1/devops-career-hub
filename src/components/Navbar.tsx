@@ -18,13 +18,13 @@ const Navbar = () => {
     { href: '#experience', label: 'experience' },
     { href: '#skills', label: 'skills' },
     { href: '#certifications', label: 'certifications' },
+    { href: '#projects', label: 'projects' },
     { href: '#contact', label: 'contact' },
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-      isScrolled ? 'bg-background/90 backdrop-blur-md border-b border-border' : ''
-    }`}>
+    <nav className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${isScrolled ? 'bg-background/90 backdrop-blur-md border-b border-border' : ''
+      }`}>
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <a href="#" className="flex items-center gap-2 text-primary glow-text">
@@ -36,9 +36,9 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a 
-                key={link.href} 
-                href={link.href} 
+              <a
+                key={link.href}
+                href={link.href}
                 className="nav-link text-sm"
               >
                 <span className="text-primary">./</span>{link.label}
@@ -47,7 +47,7 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Toggle */}
-          <button 
+          <button
             className="md:hidden text-foreground"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
@@ -60,9 +60,9 @@ const Navbar = () => {
           <div className="md:hidden mt-4 pb-4 border-t border-border pt-4">
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
-                <a 
-                  key={link.href} 
-                  href={link.href} 
+                <a
+                  key={link.href}
+                  href={link.href}
                   className="nav-link text-sm"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
