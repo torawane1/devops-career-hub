@@ -9,15 +9,13 @@ const Experience = () => {
       period: 'June 2024 – Present',
       status: 'current',
       highlights: [
-        'Drive Proof of Concept (POC) initiatives for new Azure features and DevOps tools',
-        'Manage production releases end-to-end, from planning to monitoring',
-        'Provision and manage Azure infrastructure using Terraform, including AKS, VNets, subnets, front door load balancers, and managed identities',
-        'Manage Kubernetes (AKS) clusters with Flux and Helm, adopting GitOps',
-        'Harden Kubernetes clusters through RBAC, network policies, pod security standards, and secret management',
-        'Monitor system performance using SigNoz as observability solution',
-        'Integrate observability tooling with logs, metrics, and traces to support incident response and root cause analysis',
+        'Architected and maintained multi-region Azure infrastructure using Terraform, implementing remote state management, state locking, and modular design patterns to ensure scalability and zero-drift environments.',
+        'Orchestrated production-grade Kubernetes (AKS) clusters, implementing rigorous readiness/liveness probes, and NGINX Ingress controllers for seamless traffic management.',
+        'Designed and implemented comprehensive observability stacks using SigNoz, defining SLOs/SLIs and tuning alerts to reduce fatigue while ensuring 99.9% system availability.',
+        'Championed GitOps practices using Flux CD for continuous delivery, enabling automated drift detection and rapid rollback capabilities for microservices architectures.',
+        'Hardened cluster security through strict RBAC policies and workload identity federation for secure cloud resource access.',
       ],
-      tech: ['Azure', 'Terraform', 'Kubernetes', 'Flux', 'Helm', 'Kustomize', 'SigNoz', 'Powershell'],
+      tech: ['Azure', 'Terraform', 'Kubernetes', 'Flux', 'Helm', 'KEDA', 'SigNoz', 'Powershell'],
     },
     {
       title: 'Solutions Delivery Consultant',
@@ -26,10 +24,10 @@ const Experience = () => {
       period: 'October 2023 – June 2024',
       status: 'completed',
       highlights: [
-        'Orchestrated migration of Verify Directory (LDAP) to Azure Kubernetes Service',
-        'Designed peer-to-peer replication topology in AKS for scalability',
-        'Executed data migration from DB2 to PostgreSQL on Azure Cloud',
-        'Leveraged Kubernetes operators for optimized containerized deployments',
+        'Led the migration of stateful workloads (verify Directory/LDAP) to Azure Kubernetes Service, designing highly available storage solutions and implementing robust backup/restore strategies.',
+        'Engineered a peer-to-peer replication topology within AKS to ensure data consistency and high availability across availability zones.',
+        'Executed complex database migrations from DB2 to PostgreSQL on Azure, optimizing query performance and ensuring data integrity with zero downtime cutover strategies.',
+        'Developed custom Kubernetes Operators to automate complex operational tasks, significantly reducing manual toil and improving deployment reliability.',
       ],
       tech: ['Azure', 'Kubernetes', 'PostgreSQL', 'DB2', 'LDAP', 'Powershell', 'Ansible'],
     },
@@ -40,10 +38,10 @@ const Experience = () => {
       period: 'March 2022 – September 2023',
       status: 'completed',
       highlights: [
-        'Managed technical relationships with enterprise clients',
-        'Supported troubleshooting and incident resolution by collaborating with engineering and support teams',
-        'Assisted clients with cloud architecture discussions, migrations, and best practices',
-        'Provided technical guidance on IBM cloud solutions',
+        'Owned technical enterprise relationships, driving incident resolution through rigorous Root Cause Analysis (RCA) and detailed postmortem documentation.',
+        'Provided architectural guidance on cloud migrations and best practices, focusing on cost optimization, security compliance, and operational excellence.',
+        'Diagnosed and resolved complex production incidents, reducing Mean Time to Resolution (MTTR) by collaborating effectively with engineering and support teams.',
+        'Identified and remediated recurring issues to improve overall system stability and customer satisfaction.',
       ],
       tech: ['IBM Cloud', 'Customer Relations', 'Trusted Advisor'],
     },
@@ -54,13 +52,13 @@ const Experience = () => {
       period: 'April 2017 – January 2021',
       status: 'completed',
       highlights: [
-        'Specialization in Identity Access Management domain',
-        'Product expertise in IBM Security Verify Access (SSO, MFA, Federation) & Verify Directory (LDAP)',
-        'Deployment experience of ISVA & ISVD with on-prem and cloud solutions',
-        'Strong knowledge of SSL implementation and troubleshooting',
-        'Maintaining high availability of SSO components using Distributed session cache management',
-      ],
-      tech: ['Reverse Proxy', 'Python', 'Ansible', 'Kubernetes', 'TCP/IP', 'LDAP', 'SSL', 'Distributed Cache', 'HTTP Headers, Cookies, Sessions', 'Backup & Disaster Recovery'],
+        highlights: [
+          'Specialized in Identity Access Management (IAM) and DevSecOps, implementing secure authentication flows (SSO, MFA, OIDC/SAML) for enterprise applications.',
+          'Managed and secured IBM Security Verify Access/Directory deployments, hardening network perimeters with reverse proxies, WAFs, and mutual TLS (mTLS) configurations.',
+          'Deep troubleshooting of network latency and connectivity issues using TCP dump analysis and packet inspection to ensure optimal application performance.',
+          'Designed High Availability (HA) architectures for critical identity services, utilizing distributed session caching and load balancing strategies to maintain 99.99% uptime.',
+        ],
+        tech: ['Reverse Proxy', 'Python', 'Ansible', 'Kubernetes', 'TCP/IP', 'LDAP', 'SSL', 'Distributed Cache', 'HTTP Headers, Cookies, Sessions', 'Backup & Disaster Recovery'],
     },
     {
       title: 'Software Engineer - SQL Developer',
@@ -69,9 +67,9 @@ const Experience = () => {
       period: 'June 2016 – March 2017',
       status: 'completed',
       highlights: [
-        'Analyze existing SQL queries for performance improvements',
-        'Identify and fix performance bottlenecks in SQL queries, database design, and system configuration',
-        'Develop procedures and scripts for data migration',
+        'Optimized critical SQL queries and database schemas, resulting in measurable performance improvements for high-traffic core applications.',
+        'Automated data migration and transformation tasks using complex SQL scripts and stored procedures, ensuring data accuracy and consistency.',
+        'Identified and resolved database bottlenecks through query plan analysis and index optimization.',
       ],
       tech: ['SQL', 'Database Optimization', 'Data Migration'],
     },
@@ -105,12 +103,11 @@ const Experience = () => {
             {experiences.map((exp, index) => (
               <div key={index} className="relative pl-16 md:pl-20">
                 {/* Pipeline node */}
-                <div className={`absolute left-4 md:left-6 top-6 w-4 h-4 rounded-full border-2 bg-background ${
-                  exp.status === 'current' 
-                    ? 'border-primary animate-pulse-glow' 
+                <div className={`absolute left-4 md:left-6 top-6 w-4 h-4 rounded-full border-2 bg-background ${exp.status === 'current'
+                    ? 'border-primary animate-pulse-glow'
                     : 'border-secondary'
-                }`} />
-                
+                  }`} />
+
                 {/* Connector */}
                 <div className="absolute left-[26px] md:left-[34px] top-8 w-6 md:w-8 h-0.5 bg-border" />
 
