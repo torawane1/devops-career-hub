@@ -15,7 +15,7 @@ const Experience = () => {
         'Championed GitOps practices using Flux CD for continuous delivery, enabling automated drift detection and rapid rollback capabilities for microservices architectures.',
         'Hardened cluster security through strict RBAC policies and workload identity federation for secure cloud resource access.',
       ],
-      tech: ['Azure', 'Terraform', 'Kubernetes', 'Flux', 'Helm', 'KEDA', 'SigNoz', 'Powershell'],
+      tech: ['Azure', 'Terraform', 'Kubernetes', 'Flux', 'Helm', 'Kustomize', 'SigNoz', 'Powershell'],
     },
     {
       title: 'Solutions Delivery Consultant',
@@ -52,13 +52,12 @@ const Experience = () => {
       period: 'April 2017 – January 2021',
       status: 'completed',
       highlights: [
-        highlights: [
-          'Specialized in Identity Access Management (IAM) and DevSecOps, implementing secure authentication flows (SSO, MFA, OIDC/SAML) for enterprise applications.',
-          'Managed and secured IBM Security Verify Access/Directory deployments, hardening network perimeters with reverse proxies, WAFs, and mutual TLS (mTLS) configurations.',
-          'Deep troubleshooting of network latency and connectivity issues using TCP dump analysis and packet inspection to ensure optimal application performance.',
-          'Designed High Availability (HA) architectures for critical identity services, utilizing distributed session caching and load balancing strategies to maintain 99.99% uptime.',
-        ],
-        tech: ['Reverse Proxy', 'Python', 'Ansible', 'Kubernetes', 'TCP/IP', 'LDAP', 'SSL', 'Distributed Cache', 'HTTP Headers, Cookies, Sessions', 'Backup & Disaster Recovery'],
+        'Specialized in Identity Access Management (IAM) and DevSecOps, implementing secure authentication flows (SSO, MFA, OIDC/SAML) for enterprise applications.',
+        'Managed and secured IBM Security Verify Access/Directory deployments, hardening network perimeters with reverse proxies, WAFs, and mutual TLS (mTLS) configurations.',
+        'Deep troubleshooting of network latency and connectivity issues using TCP dump analysis and packet inspection to ensure optimal application performance.',
+        'Designed High Availability (HA) architectures for critical identity services, utilizing distributed session caching and load balancing strategies to maintain 99.99% uptime.',
+      ],
+      tech: ['Reverse Proxy', 'Python', 'Ansible', 'Kubernetes', 'TCP/IP', 'LDAP', 'SSL', 'Distributed Cache', 'HTTP Headers, Cookies, Sessions', 'Backup & Disaster Recovery'],
     },
     {
       title: 'Software Engineer - SQL Developer',
@@ -104,8 +103,8 @@ const Experience = () => {
               <div key={index} className="relative pl-16 md:pl-20">
                 {/* Pipeline node */}
                 <div className={`absolute left-4 md:left-6 top-6 w-4 h-4 rounded-full border-2 bg-background ${exp.status === 'current'
-                    ? 'border-primary animate-pulse-glow'
-                    : 'border-secondary'
+                  ? 'border-primary animate-pulse-glow'
+                  : 'border-secondary'
                   }`} />
 
                 {/* Connector */}
