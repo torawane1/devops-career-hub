@@ -58,7 +58,7 @@ const Certifications = () => {
   return (
     <Section
       id="certifications"
-      number="05 // Clearances"
+      number="05 // Credentials"
       title="Certifications"
       aside={
         <a
