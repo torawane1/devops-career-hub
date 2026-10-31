@@ -1,78 +1,61 @@
-import { useState, useEffect } from 'react';
-import { Terminal, Menu, X } from 'lucide-react';
+import { useState } from 'react';
+import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   const navLinks = [
-    { href: '#about', label: 'about' },
-    { href: '#experience', label: 'experience' },
-    { href: '#skills', label: 'skills' },
-    { href: '#certifications', label: 'certifications' },
-    { href: '#projects', label: 'projects' },
-    { href: '#contact', label: 'contact' },
+    { href: '#about', label: 'About' },
+    { href: '#experience', label: 'Experience' },
+    { href: '#projects', label: 'Projects' },
+    { href: '#skills', label: 'Skills' },
+    { href: '#certifications', label: 'Certifications' },
+    { href: '#contact', label: 'Contact' },
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${isScrolled ? 'bg-background/90 backdrop-blur-md border-b border-border' : ''
-      }`}>
-      <div className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          <a href="#" className="flex items-center gap-2 text-primary glow-text">
-            <Terminal className="w-6 h-6" />
-            <span className="font-bold text-lg">umesh@devops</span>
-            <span className="text-muted-foreground">:~$</span>
-          </a>
+    <nav className="sticky top-0 z-40 border-b border-primary/30 bg-background/90 backdrop-blur-sm">
+      <div className="page flex h-14 items-center justify-between">
+        <a href="#top" className="font-display text-sm uppercase leading-none tracking-wide text-primary">
+          Umesh Torawane
+        </a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="nav-link text-sm"
-              >
-                <span className="text-primary">./</span>{link.label}
-              </a>
-            ))}
-          </div>
-
-          {/* Mobile Menu Toggle */}
-          <button
-            className="md:hidden text-foreground"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+        <div className="hidden items-center gap-6 md:flex">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="font-mono text-[13px] uppercase tracking-[0.1em] text-muted-foreground transition-colors hover:text-primary"
+            >
+              {link.label}
+            </a>
+          ))}
         </div>
 
-        {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t border-border pt-4">
-            <div className="flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="nav-link text-sm"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  <span className="text-primary">./</span>{link.label}
-                </a>
-              ))}
-            </div>
-          </div>
-        )}
+        <button
+          className="-mr-2 p-2 md:hidden"
+          aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isMobileMenuOpen}
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+        </button>
       </div>
+
+      {isMobileMenuOpen && (
+        <div className="page flex flex-col border-t border-border py-2 md:hidden">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="py-3 text-base"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+      )}
     </nav>
   );
 };

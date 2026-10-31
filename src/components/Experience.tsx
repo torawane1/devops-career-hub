@@ -1,13 +1,27 @@
-import { Calendar, MapPin, ChevronRight } from 'lucide-react';
+import { Plus } from 'lucide-react';
+import Section from './Section';
+
+const MONTHS = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
+
+const CURRENT_BAR = 'bg-signal shadow-[0_0_14px_hsl(var(--signal)/0.7)]';
+const WORK_BAR = 'bg-primary/70';
+const STUDY_BAR = 'border border-primary bg-primary/10';
+
+const now = new Date();
+const today = now.getFullYear() + now.getMonth() / 12;
+
+const toYear = (date: string) => {
+  const [month, year] = date.trim().toLowerCase().split(' ');
+  return month === 'present' ? today : Number(year) + MONTHS.indexOf(month) / 12;
+};
 
 const Experience = () => {
   const experiences = [
     {
-      title: 'DevOps Engineer',
-      company: 'VML MAP',
+      title: 'Sr. DevOps Engineer',
+      company: 'WPP Enterprise Solutions',
       location: 'Copenhagen, Denmark',
       period: 'June 2024 – Present',
-      status: 'current',
       highlights: [
         'Architected and maintained multi-region Azure infrastructure using Terraform, implementing remote state management, state locking, and modular design patterns to ensure scalability and zero-drift environments.',
         'Orchestrated production-grade Kubernetes (AKS) clusters, implementing rigorous readiness/liveness probes, and NGINX Ingress controllers for seamless traffic management.',
@@ -22,7 +36,6 @@ const Experience = () => {
       company: 'IBM Denmark ApS',
       location: 'Copenhagen, Denmark',
       period: 'October 2023 – June 2024',
-      status: 'completed',
       highlights: [
         'Led the migration of stateful workloads (verify Directory/LDAP) to Azure Kubernetes Service, designing highly available storage solutions and implementing robust backup/restore strategies.',
         'Engineered a peer-to-peer replication topology within AKS to ensure data consistency and high availability across availability zones.',
@@ -36,7 +49,6 @@ const Experience = () => {
       company: 'IBM Denmark ApS',
       location: 'Copenhagen, Denmark',
       period: 'March 2022 – September 2023',
-      status: 'completed',
       highlights: [
         'Owned technical enterprise relationships, driving incident resolution through rigorous Root Cause Analysis (RCA) and detailed postmortem documentation.',
         'Provided architectural guidance on cloud migrations and best practices, focusing on cost optimization, security compliance, and operational excellence.',
@@ -50,7 +62,6 @@ const Experience = () => {
       company: 'IBM India Pvt Ltd',
       location: 'Pune, India',
       period: 'April 2017 – January 2021',
-      status: 'completed',
       highlights: [
         'Specialized in Identity Access Management (IAM) and DevSecOps, implementing secure authentication flows (SSO, MFA, OIDC/SAML) for enterprise applications.',
         'Managed and secured IBM Security Verify Access/Directory deployments, hardening network perimeters with reverse proxies, WAFs, and mutual TLS (mTLS) configurations.',
@@ -64,7 +75,6 @@ const Experience = () => {
       company: 'Yardi',
       location: 'Pune, India',
       period: 'June 2016 – March 2017',
-      status: 'completed',
       highlights: [
         'Optimized critical SQL queries and database schemas, resulting in measurable performance improvements for high-traffic core applications.',
         'Automated data migration and transformation tasks using complex SQL scripts and stored procedures, ensuring data accuracy and consistency.',
@@ -77,7 +87,6 @@ const Experience = () => {
       company: 'CDAC India',
       location: 'Pune, India',
       period: 'August 2015 – April 2016',
-      status: 'completed',
       highlights: [
         'Worked on sponsored engineering project',
         'Applied theoretical knowledge to real-world applications',
@@ -86,87 +95,104 @@ const Experience = () => {
     },
   ];
 
+  const spans = experiences.map((exp) => {
+    const [start, end] = exp.period.split('–').map(toYear);
+    return { start, end };
+  });
+  const education = [
+    { label: "Bachelor's degree, Pune University", start: toYear('January 2012'), end: toYear('May 2016') },
+    { label: "Master's degree, Aalborg University", start: toYear('February 2021'), end: toYear('February 2023') },
+  ];
+  const first = Math.floor(Math.min(...spans.map((span) => span.start), ...education.map((item) => item.start)));
+  const range = today - first;
+  const position = (year: number) => `${((year - first) / range) * 100}%`;
+  const ticks = Array.from({ length: Math.ceil(range / 2) }, (_, i) => first + 1 + i * 2).filter((year) => year < today);
+
+  const timeline = [
+    ...experiences.map((exp, index) => ({
+      label: `${exp.title}, ${exp.company}`,
+      style: exp.period.includes('Present') ? CURRENT_BAR : WORK_BAR,
+      ...spans[index],
+    })),
+    ...education.map((item) => ({ ...item, style: STUDY_BAR })),
+  ].sort((a, b) => a.start - b.start);
+
   return (
-    <section id="experience" className="py-24 px-6 bg-muted/30">
-      <div className="container mx-auto max-w-5xl">
-        <h2 className="section-header text-2xl font-bold">
-          <span className="text-secondary">git log</span> --experience
-        </h2>
-
-        {/* Pipeline Visualization */}
-        <div className="relative">
-          {/* Pipeline line */}
-          <div className="absolute left-6 md:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary to-primary/30" />
-
-          <div className="space-y-8">
-            {experiences.map((exp, index) => (
-              <div key={index} className="relative pl-16 md:pl-20">
-                {/* Pipeline node */}
-                <div className={`absolute left-4 md:left-6 top-6 w-4 h-4 rounded-full border-2 bg-background ${exp.status === 'current'
-                  ? 'border-primary animate-pulse-glow'
-                  : 'border-secondary'
-                  }`} />
-
-                {/* Connector */}
-                <div className="absolute left-[26px] md:left-[34px] top-8 w-6 md:w-8 h-0.5 bg-border" />
-
-                {/* Experience Card */}
-                <div className="terminal-window card-glow overflow-hidden">
-                  <div className="terminal-header">
-                    <div className="terminal-dot terminal-dot-red" />
-                    <div className="terminal-dot terminal-dot-yellow" />
-                    <div className="terminal-dot terminal-dot-green" />
-                    <span className="ml-4 text-muted-foreground text-xs md:text-sm truncate">
-                      {exp.company.toLowerCase().replace(/\s+/g, '-')}.log
-                    </span>
-                    {exp.status === 'current' && (
-                      <span className="ml-auto px-2 py-0.5 text-xs bg-primary/20 text-primary rounded">
-                        RUNNING
-                      </span>
-                    )}
-                  </div>
-                  <div className="p-4 md:p-6">
-                    <div className="flex flex-col md:flex-row md:items-start justify-between gap-2 mb-4">
-                      <div>
-                        <h3 className="text-lg font-semibold text-foreground">{exp.title}</h3>
-                        <p className="text-primary">{exp.company}</p>
-                      </div>
-                      <div className="flex flex-col gap-1 text-xs text-muted-foreground">
-                        <div className="flex items-center gap-1">
-                          <Calendar className="w-3 h-3" />
-                          {exp.period}
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <MapPin className="w-3 h-3" />
-                          {exp.location}
-                        </div>
-                      </div>
-                    </div>
-
-                    <ul className="space-y-2 mb-4">
-                      {exp.highlights.map((highlight, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                          <ChevronRight className="w-4 h-4 text-secondary flex-shrink-0 mt-0.5" />
-                          <span>{highlight}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <div className="flex flex-wrap gap-2">
-                      {exp.tech.map((tech) => (
-                        <span key={tech} className="tech-badge">
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+    <Section id="experience" number="02 // Mission log" title="Experience">
+      {/* Career timeline, drawn to scale from the role dates */}
+      <div aria-hidden="true" className="mb-10">
+        <div className="relative h-5">
+          {ticks.map((year) => (
+            <span
+              key={year}
+              className="absolute -translate-x-1/2 font-mono text-[11px] text-muted-foreground"
+              style={{ left: position(year) }}
+            >
+              {year}
+            </span>
+          ))}
+        </div>
+        <div className="relative border-t border-primary/40 pt-2">
+          {ticks.map((year) => (
+            <span key={year} className="absolute bottom-0 top-0 w-px bg-primary/15" style={{ left: position(year) }} />
+          ))}
+          <div className="relative space-y-1">
+            {timeline.map((row) => (
+              <div key={row.label} className="relative h-3">
+                <span
+                  className={`absolute h-full transition-[filter] duration-150 hover:brightness-150 ${row.style}`}
+                  style={{ left: position(row.start), width: `${((row.end - row.start) / range) * 100}%` }}
+                  title={row.label}
+                />
               </div>
             ))}
           </div>
         </div>
+        <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1 font-mono text-[11px] uppercase tracking-[0.1em] text-muted-foreground">
+          <span className="flex items-center gap-2">
+            <span className={`h-2 w-4 ${CURRENT_BAR}`} />
+            Current role
+          </span>
+          <span className="flex items-center gap-2">
+            <span className={`h-2 w-4 ${WORK_BAR}`} />
+            Work
+          </span>
+          <span className="flex items-center gap-2">
+            <span className={`h-2 w-4 ${STUDY_BAR}`} />
+            Education
+          </span>
+        </div>
       </div>
-    </section>
+
+      <div className="border-t border-primary/40">
+        {experiences.map((exp, index) => (
+          <details key={exp.period} open={index < 2} className="ledger-row hud-hover border-b border-border py-5">
+            <summary>
+              <div className="grid flex-1 gap-1 md:grid-cols-9 md:gap-8">
+                <p className="pt-1 font-mono text-xs text-muted-foreground md:col-span-3">{exp.period}</p>
+                <div className="md:col-span-6">
+                  <h3 className="ledger-title text-lg font-medium leading-snug transition-colors">{exp.title}</h3>
+                  <p className="text-sm text-muted-foreground">
+                    {exp.company} · {exp.location}
+                  </p>
+                </div>
+              </div>
+              <Plus className="ledger-toggle" />
+            </summary>
+            <div className="mt-4 grid md:grid-cols-9 md:gap-8">
+              <div className="pr-9 md:col-span-6 md:col-start-4">
+                <ul className="list-disc space-y-2 pl-4 text-[15px] leading-relaxed text-muted-foreground marker:text-primary">
+                  {exp.highlights.map((highlight) => (
+                    <li key={highlight}>{highlight}</li>
+                  ))}
+                </ul>
+                <p className="mt-4 font-mono text-xs leading-relaxed text-muted-foreground">{exp.tech.join(' / ')}</p>
+              </div>
+            </div>
+          </details>
+        ))}
+      </div>
+    </Section>
   );
 };
 

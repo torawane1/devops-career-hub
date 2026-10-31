@@ -14,8 +14,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        mono: ["JetBrains Mono", "monospace"],
-        sans: ["Inter", "sans-serif"],
+        display: ["Michroma", "sans-serif"],
+        sans: ["Space Grotesk", "system-ui", "sans-serif"],
+        mono: ["Share Tech Mono", "monospace"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -61,15 +62,7 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        terminal: {
-          green: "hsl(var(--terminal-green))",
-          cyan: "hsl(var(--terminal-cyan))",
-          magenta: "hsl(var(--terminal-magenta))",
-          yellow: "hsl(var(--terminal-yellow))",
-          orange: "hsl(var(--terminal-orange))",
-          red: "hsl(var(--terminal-red))",
-          blue: "hsl(var(--terminal-blue))",
-        },
+        signal: "hsl(var(--signal))",
       },
       borderRadius: {
         lg: "var(--radius)",

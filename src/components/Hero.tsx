@@ -1,106 +1,81 @@
-import { ArrowDown, MapPin, Mail } from 'lucide-react';
-import TypingEffect from './TypingEffect';
-import profileImage from '@/assets/profile.jpg';
+import { ArrowRight } from 'lucide-react';
+import profileImage from '@/assets/profile.webp';
 
 const Hero = () => {
-  const typingTexts = [
-    'DevOps Engineer',
-    'Platform Engineer',
-    'Infrastructure Specialist',
-    'Automation Expert',
-    'Kubernetes Enthusiast',
+  const facts = [
+    { label: 'Current post', value: 'Sr. DevOps Engineer, WPP Enterprise Solutions' },
+    { label: 'Home port', value: 'Copenhagen, Denmark' },
+    { label: 'Primary systems', value: 'Azure, Kubernetes, Terraform, GitOps' },
   ];
 
   return (
-    <section className="min-h-screen flex items-center justify-center pt-20 px-6">
-      <div className="container mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
-          <div className="opacity-0 animate-fade-in-up">
-            <div className="terminal-window max-w-2xl">
-              <div className="terminal-header">
-                <div className="terminal-dot terminal-dot-red" />
-                <div className="terminal-dot terminal-dot-yellow" />
-                <div className="terminal-dot terminal-dot-green" />
-                <span className="ml-4 text-muted-foreground text-sm">terminal — bash</span>
-              </div>
-              <div className="terminal-body space-y-4">
-                <div>
-                  <span className="text-muted-foreground">$ </span>
-                  <span className="text-secondary">whoami</span>
-                </div>
-                <div className="text-3xl md:text-4xl lg:text-5xl font-bold">
-                  <span className="text-foreground">Umesh </span>
-                  <span className="text-primary glow-text">Torawane</span>
-                </div>
-                
-                <div className="h-8">
-                  <span className="text-muted-foreground">$ </span>
-                  <span className="text-secondary">echo $ROLE</span>
-                  <div className="mt-1 text-xl md:text-2xl">
-                    <TypingEffect texts={typingTexts} />
-                  </div>
-                </div>
+    <section id="top" className="relative overflow-hidden">
+      {/* Planet horizon glow behind the title */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 top-0 -z-10 h-[620px] bg-[radial-gradient(ellipse_75%_70%_at_50%_0%,hsl(var(--primary)/0.2),transparent_72%)]"
+      />
 
-                <div className="pt-6 space-y-2 text-sm">
-                  <div className="flex items-center gap-2">
-                    <MapPin className="w-4 h-4 text-secondary" />
-                    <span className="text-muted-foreground">Copenhagen, Denmark</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Mail className="w-4 h-4 text-secondary" />
-                    <a href="mailto:torawane.umesh@gmail.com" className="text-muted-foreground hover:text-foreground transition-colors">
-                      torawane.umesh@gmail.com
-                    </a>
-                  </div>
+      <div className="page pb-16 pt-12 md:pb-24 md:pt-20">
+        <p className="rise eyebrow">Personnel file // Sr. DevOps Engineer</p>
+        <h1 className="rise glow-text mt-5 font-display text-[9vw] uppercase leading-[1.1] sm:text-[5.5vw] xl:text-[4.5rem]">
+          <span className="block">Umesh</span>
+          <span className="block text-primary">Torawane</span>
+        </h1>
 
-                </div>
-
-                <div className="pt-6 flex flex-wrap gap-4">
-                  <a href="#contact" className="btn-terminal">
-                    <span>$ contact --me</span>
-                  </a>
-                  <a href="#experience" className="btn-outline-terminal">
-                    <span>$ view --resume</span>
-                  </a>
-                </div>
-              </div>
+        <div className="rise mt-8 grid gap-8 [animation-delay:150ms] md:mt-12 md:grid-cols-12">
+          <div className="md:col-span-7">
+            <p className="max-w-xl text-xl leading-snug md:text-2xl">
+              Senior DevOps engineer building and managing cloud infrastructure at scale, with Kubernetes, GitOps and reliable
+              production releases.
+            </p>
+            <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 bg-primary px-5 py-3 font-mono text-sm uppercase tracking-[0.12em] text-primary-foreground shadow-[0_0_24px_hsl(var(--primary)/0.4)] transition-shadow hover:shadow-[0_0_40px_hsl(var(--primary)/0.7)]"
+              >
+                Open a channel
+                <ArrowRight className="h-4 w-4" />
+              </a>
+              <a href="#experience" className="link-underline text-sm font-medium">
+                View mission log
+              </a>
             </div>
           </div>
 
-          {/* Right Content - Profile Image */}
-          <div className="opacity-0 animate-fade-in-up animation-delay-300 flex justify-center lg:justify-end">
-            <div className="relative">
-              {/* Decorative elements */}
-              <div className="absolute -inset-4 rounded-2xl bg-gradient-to-r from-primary/20 to-secondary/20 blur-xl" />
-              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-primary to-secondary opacity-50" />
-              
-              {/* Image container */}
-              <div className="relative rounded-xl overflow-hidden border-2 border-primary/50 max-w-md">
-                <img 
-                  src={profileImage} 
-                  alt="Umesh Torawane - DevOps Engineer" 
-                  className="w-full h-auto object-cover"
-                />
-                {/* Overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
-                
-                {/* Status indicator */}
-                <div className="absolute bottom-4 left-4 flex items-center gap-2 bg-background/80 backdrop-blur-sm px-3 py-1.5 rounded-full border border-primary/30">
-                  <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-                  {/* <span className="text-xs text-primary">Available for opportunities</span> */}
-                </div>
+          <dl className="space-y-3 md:col-span-4 md:col-start-9">
+            {facts.map((fact) => (
+              <div key={fact.label} className="hud-hover border-t border-primary/30 pt-3">
+                <dt className="eyebrow">{fact.label}</dt>
+                <dd className="mt-1 text-sm">{fact.value}</dd>
               </div>
-            </div>
-          </div>
+            ))}
+          </dl>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="flex justify-center mt-16 opacity-0 animate-fade-in-up animation-delay-600">
-          <a href="#about" className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-            <span className="text-xs">scroll down</span>
-            <ArrowDown className="w-4 h-4 animate-bounce" />
-          </a>
+        {/* Photo shown as a flight-deck viewport */}
+        <div className="rise hud-frame mt-12 overflow-hidden [animation-delay:300ms] md:mt-16">
+          <img
+            src={profileImage}
+            alt="Umesh Torawane working at a laptop in a dim room lit by a desk lamp"
+            width={2000}
+            height={1333}
+            className="aspect-[4/3] w-full object-cover object-[40%_50%] sm:aspect-[21/9]"
+          />
+          <div className="scanlines" />
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 200 200"
+            className="reticle absolute left-[42%] top-[34%] hidden h-56 w-56 text-primary/60 sm:block"
+            style={{ translate: '-50% -50%' }}
+          >
+            <circle cx="100" cy="100" r="96" fill="none" stroke="currentColor" strokeWidth="0.6" strokeDasharray="2 6" />
+            <circle cx="100" cy="100" r="78" fill="none" stroke="currentColor" strokeWidth="0.6" strokeDasharray="30 18" />
+          </svg>
+          <div className="absolute inset-x-0 bottom-0 z-[1] flex flex-wrap justify-between gap-x-6 bg-gradient-to-t from-background/90 to-transparent p-3 pt-10 font-mono text-[11px] uppercase tracking-[0.14em] text-primary md:p-4 md:text-xs">
+            <span>Viewport 01</span>
+            <span>55.68°N 12.57°E</span>
+          </div>
         </div>
       </div>
     </section>
