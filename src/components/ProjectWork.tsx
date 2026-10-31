@@ -66,7 +66,7 @@ const ProjectWork = () => {
             role: 'DevOps Engineer',
             environment: 'Azure Kubernetes Service, SigNoz, Helm, Flux, Kustomize (GitOps), OpenTelemetry',
             color: 'from-orange-500 to-yellow-500',
-            icon: '�',
+            icon: '📊',
             status: 'success',
             workDone: [
                 'Set up a POC observability platform using SigNoz on Azure Kubernetes Service (AKS).',

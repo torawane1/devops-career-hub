@@ -3,6 +3,15 @@ import { Award, Shield, Cloud, CheckCircle, Calendar } from 'lucide-react';
 const Certifications = () => {
   const certifications = [
     {
+      name: 'KCNA: Kubernetes and Cloud Native Associate',
+      code: 'KCNA',
+      provider: 'The Linux Foundation',
+      color: 'from-blue-500 to-indigo-500',
+      icon: '☸️',
+      issuedDate: 'Oct 15, 2026',
+      expiryDate: 'Oct 14, 2028',
+    },
+    {
       name: 'Microsoft Certified Azure DevOps Expert',
       code: 'AZ-400',
       provider: 'Microsoft',
@@ -17,7 +26,7 @@ const Certifications = () => {
       provider: 'Amazon Web Services',
       color: 'from-orange-500 to-yellow-500',
       icon: '☁️',
-      issuedDate: 'N/A',
+      issuedDate: 'Apr 5, 2024',
       expiryDate: 'May 5, 2027',
     },
     {
@@ -26,7 +35,7 @@ const Certifications = () => {
       provider: 'Amazon Web Services',
       color: 'from-orange-500 to-yellow-500',
       icon: '👨‍💻',
-      issuedDate: 'N/A',
+      issuedDate: 'May 5, 2024',
       expiryDate: 'May 5, 2027',
     },
     {
@@ -35,7 +44,7 @@ const Certifications = () => {
       provider: 'HashiCorp',
       color: 'from-purple-500 to-pink-500',
       icon: '🏗️',
-      issuedDate: 'N/A',
+      issuedDate: 'May 20, 2024',
       expiryDate: 'May 20, 2026',
     },
     {
@@ -57,6 +66,8 @@ const Certifications = () => {
       expiryDate: 'N/A',
     },
   ];
+
+  const isExpired = (date: string) => new Date(date) < new Date();
 
   return (
     <section id="certifications" className="py-24 px-6 bg-muted/30">
@@ -114,7 +125,9 @@ const Certifications = () => {
                   <h3 className="font-medium text-foreground text-sm leading-tight">
                     {cert.name}
                   </h3>
-                  <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                  {!isExpired(cert.expiryDate) && (
+                    <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                  )}
                 </div>
                 <p className="text-xs text-muted-foreground mt-1">{cert.provider}</p>
                 <span className="inline-block mt-2 px-2 py-0.5 text-xs bg-muted rounded text-muted-foreground">
@@ -127,7 +140,7 @@ const Certifications = () => {
                   </div>
                   <div className="flex items-center gap-1">
                     <Calendar className="w-3 h-3" />
-                    <span>Expires: {cert.expiryDate}</span>
+                    <span>{isExpired(cert.expiryDate) ? 'Expired' : 'Expires'}: {cert.expiryDate}</span>
                   </div>
                 </div>
               </div>
